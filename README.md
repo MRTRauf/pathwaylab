@@ -125,7 +125,7 @@ unlinked. Their original terms apply separately from any original-code license.
 See [DATA_ACCESS_AND_LICENSE.md](DATA_ACCESS_AND_LICENSE.md) and
 [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md).
 
-The code-license choice is awaiting owner confirmation. External datasets are not
+Original eligible PathwayLab code is licensed under the [MIT License](LICENSE). External datasets are not
 relicensed or redistributed here. The public app is deliberately data-free.
 
 The real GPS sample is small and dependent, with incomplete exposure/coding

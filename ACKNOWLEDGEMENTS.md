@@ -1,3 +1,7 @@
+> Release authorization: the owner explicitly approved MIT for eligible original code,
+> the reviewed public GitHub release and synthetic-only Community Cloud deployment.
+> Third-party data, assets and dependencies retain their original terms.
+
 # Acknowledgements and third-party terms
 
 PathwayLab is an independent project by Muhammad Rauf. No professional club,

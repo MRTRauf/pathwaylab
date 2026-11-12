@@ -1,3 +1,7 @@
+> Release authorization: the owner explicitly approved MIT for eligible original code,
+> the reviewed public GitHub release and synthetic-only Community Cloud deployment.
+> Third-party data, assets and dependencies retain their original terms.
+
 # Data access, licensing and publication boundary
 
 The public PathwayLab application is **SYNTHETIC DEMONSTRATION - NOT REAL PLAYER

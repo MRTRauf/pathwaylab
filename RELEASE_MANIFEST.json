@@ -3,7 +3,7 @@
   "intended_owner": "MRTRauf",
   "intended_repository": "pathwaylab",
   "public_entrypoint": "app/public_demo.py",
-  "code_license": "PENDING OWNER APPROVAL",
+  "code_license": "MIT",
   "omitted_local_integration_checks": [
     "test_dashboard.py::test_real_loader_and_metrics",
     "test_dashboard.py::test_tampered_saved_metrics_rejected",
@@ -30,8 +30,8 @@
       "bytes": 391
     },
     "ACKNOWLEDGEMENTS.md": {
-      "sha256": "b6d079051582cda6c8d2786f0031fb30c2283a3dfc91673f3889f6ba2a8b942d",
-      "bytes": 1043
+      "sha256": "49774e53eb699444f14919b173c92790a018cdd5c164c314eceed5990c82fb3f",
+      "bytes": 1310
     },
     "app/public_demo.py": {
       "sha256": "f5f94adb0eae67c51bb911c810dede45942b43b973d3399f6a040fc7224d78c3",
@@ -62,28 +62,32 @@
       "bytes": 120260
     },
     "DATA_ACCESS_AND_LICENSE.md": {
-      "sha256": "261e5a84a67beda15c4258f154c23e772237a203438b5e897a4d94a09bece3a4",
-      "bytes": 3565
+      "sha256": "61cf5dc6cee633b42643bb954a13952d4d64724d48b5a5956cdce8979b58c4ef",
+      "bytes": 3875
     },
     "docs/METHODS.md": {
       "sha256": "4da372d847e5a572f4dff4a9e559446eebb61d0db9e61feef467ce21920ddeb1",
       "bytes": 5147
     },
     "FINAL_HANDOFF.md": {
-      "sha256": "9da30bb4cb148a69a649fd525e997b58db8d2822fd8a8a3a4e897efda5b03280",
-      "bytes": 4213
+      "sha256": "b1b2249eea1cd5b74449348bcb68e9ffcd115da73ac862a9aa4b8c8dff2d5dfe",
+      "bytes": 4541
     },
     "FINAL_RELEASE_REPORT.md": {
-      "sha256": "88f353f4826c8d4d375228e22d6aec5bb1a81cb082af4a280a79791690750096",
-      "bytes": 8335
+      "sha256": "74a81515db793397bb4e09ec89a71aea6eeb37aaec997a048c1f2fc351477ec5",
+      "bytes": 8785
+    },
+    "LICENSE": {
+      "sha256": "e430f9f99b3300a11d700b17cd47ee96c9bfe15d7fad31941dae4a40da1853e3",
+      "bytes": 1091
     },
     "pyproject.toml": {
       "sha256": "39e9fe95b2feedc62d0c09c518b6503b14a1ef92395c06bf90db77efb989cbe2",
       "bytes": 823
     },
     "README.md": {
-      "sha256": "cea647256c40192b86a8476bfc4bd727ea3d10b95b146073029307ee9dcac2e0",
-      "bytes": 7511
+      "sha256": "37c5275e2f5fb22f3e921fb3e406184d695275f27492e0796398a3924ebdd874",
+      "bytes": 7687
     },
     "REPRODUCIBILITY.md": {
       "sha256": "edbe0c210dcf76a779b3c344831c1d842884f8b47ba80f832c3d8cb94a784393",

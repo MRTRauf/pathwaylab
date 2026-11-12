@@ -1,3 +1,8 @@
+> Current release update: owner explicitly approved MIT for eligible original code,
+> publication of the reviewed data-free candidate and synthetic-only deployment.
+> The preparation-stage approval blockers described below are historical.
+> External verification results will be appended after execution.
+
 # PathwayLab productization and release report
 
 Status: **PARTIAL — product implementation and local verification complete;
