@@ -83,7 +83,3 @@ Pseudonymization is not anonymity or redistribution permission. See
   [Zenodo record](https://zenodo.org/records/18986229).
 - [StatsBomb Open Data](https://github.com/hudl/open-data): provider specifications
   and terms; unrelated people to the GPS dataset.
-- [PlayerData operational case study](https://playerdata.com/en-gb/blog/smoothing-the-jump-how-brondby-if-builds-players-through-the-academy-pathway)
-  and [Keldmann's historical account](https://archive.trainingground.guru/articles/mikkel-keldmann-from-one-intern-to-automated-analysis-at-brondby)
-  provide operational context, not independent evidence of predictive effectiveness
-  or a current data-access commitment.

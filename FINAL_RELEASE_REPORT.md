@@ -1,76 +1,67 @@
-# PathwayLab public release report
+# Navy redesign release report
 
-2026-11-12. **PARTIAL: GitHub publication complete; Streamlit deployment awaits
-owner account authorization.** The owner explicitly approved MIT and publication.
+Local redesign, documentation and safety verification: **PASS**.
+Authorized existing-repository update: prepared for publication.
+Live-after and hosted CI results are appended only after execution.
 
-## Verified public repository
+## Product and root cause
 
-[MRTRauf/pathwaylab](https://github.com/MRTRauf/pathwaylab) is PUBLIC, default
-branch main. GitHub recognizes the MIT license. An independent anonymous Chrome
-session received HTTP 200, rendered the README and loaded its genuine synthetic
-screenshot. No professional club affiliation or deployment is claimed.
+The previous light theme, explicit white CSS cards and white Plotly figures caused
+the plain appearance. Root native config now uses dark navy, with matching
+central tokens and figure backgrounds. Typography, numbered checked navigation,
+public status, hero/module panels, KPIs, filter grouping/reset, dashed load lines,
+selected-model encoding, semantic tables and methods panels form a coherent design.
+All five pages and scientific qualifications remain.
 
-[Hosted GitHub Actions](https://github.com/MRTRauf/pathwaylab/actions/runs/43160709722)
-completed successfully on Ubuntu/Python 3.11: 54 offline tests passed in 7.03s,
-full Ruff lint/format, dependency checks, imports, synthetic CLI and wheel packaging.
-Subsequent documentation pushes are checked separately before handoff.
+The public title is PathwayLab - Football Data Science & Performance Analytics.
+No named sporting organization, recruitment positioning, external crest or tool
+branding appears in the current public Markdown/UI. MIT and source attribution remain.
 
-## Reproduction and safety
+## Executed engineering checks
 
-Cloned the actual public GitHub repository into a new directory and installed it
-in the isolated release environment. Full fixture tests: 54 passed in 24.60s.
-Offline: 54 passed in 20.06s. Pip check, full Ruff lint/format and synthetic CLI pass.
-The original research workspace previously passed 64 full tests and 54 offline
-tests, with ten additional authorized-data integration checks retained locally.
+- Original full suite: 64 passed in 70.27s.
+- Offline suite: 54 passed, 10 integration checks deselected in 20.10s.
+- Isolated public snapshot: 54 passed in 24.11s.
+- Full Ruff lint/format: PASS, 42 workspace Python files.
+- All 21 package modules imported; pip check and wheel build passed.
+- Synthetic generation/CLI, original checksum verification and isolated Zenodo QA passed.
+- Meaningful UI tests preserve reader spies, public guards, computed scores and chronology.
+  Assertions were adapted to numbered display labels and removal of the public
+  one-option dropdown; reset behavior was added. No scientific assertion was weakened.
 
-The approved release contains the original 57 safe files plus MIT LICENSE: 58 files.
-Audited all three pre-publication commits and 66 unique blobs. Committed bytes
-matched the explicit release manifest. No inherited research history, raw external
-records, individual derivatives/predictions, private audits, credentials or local
-machine paths were included. Original data/artifacts (233 protected files) remain
-unchanged; scientific function ASTs in 15 modules remain identical. A legacy real
-fixture in the original history was replaced with invented values before the
-separate release history began. That original history was never pushed.
+All 233 protected files and scientific function ASTs in 15 modules are unchanged.
+No expensive original experiments were rerun. One CLI sentence was made organization-neutral.
 
-## Application and browser evidence
+## Browser and documentation
 
-All five existing sections retain the navy/yellow/light design. Public entry point:
-app/public_demo.py; it forces synthetic-only operation even if a private flag is
-accidentally present. Both fictional cohorts are independently generated using
-documented seeds. Model metrics and event summaries are computed from fixtures.
-No runtime original-data downloads or user-input persistence are required.
+Twenty actual live before cases and twenty local after cases, all five pages at
+1440x900, 1280x800, 768x1024 and 390x844. Local forty interaction checks passed;
+native dark canvas/card/chart computed styles were asserted. Additional stable
+table captures and final live checks are recorded in the
+[redesign review](docs/UI_REDESIGN_REVIEW.md). No page overflow/errors/title
+overruns occurred in completed local checks. Representative genuine screenshots
+were visually reviewed. This is bounded evidence, not full accessibility certification.
 
-Final preparation Chrome review passed 20 cases, 40 interaction checks and 36 genuine
-captures at 1440/1280/768/390 pixels. Filters, date changes, computed model-score
-changes, pointer hover, empty states, tables, tabs and mobile navigation passed.
-No page errors, document overflow or recorded chart-title overruns occurred.
-The published source is additionally checked in local Chrome; this is distinct
-from testing a deployed HTTPS app. No general accessibility certification is claimed.
+Canonical [workflow](docs/WORKFLOW.md) documents both real pipelines, actual modules,
+commands, inputs, outputs, validation and limitations.
+[Architecture](docs/ARCHITECTURE.md), [reproduction](REPRODUCIBILITY.md) and
+[five-minute guide](docs/DASHBOARD_GUIDE.md) match the implemented system.
+[Link audit](docs/LINK_VALIDATION.md) records internal paths, HTTP results and the
+descriptor DOI's HTTP 403 limitation without inventing a successful retrieval.
 
-## Rights and interpretation
+## Public safety and delivery
 
-MIT applies only to eligible original code. External datasets, assets and packages
-retain their terms. Zenodo redistribution evidence and StatsBomb attribution/asset
-requirements remain separate unresolved issues; affected content is excluded.
-GPS/event populations are unlinked. Research remains exploratory, conditional
-retrospective forecasting with timing, dependence, exposure and inclusion caveats.
-No injury/readiness, causal effect, player development or prospective utility claim.
+The explicit manifest contains code, safe documents and genuine synthetic captures.
+No raw datasets, real individual predictions, private artifacts, credentials or
+personal machine paths are included. Independent generator cohorts remain separate.
+Public entrypoint app/public_demo.py forces synthetic-only mode, including against
+an accidentally enabled local flag. URL/widgets cannot grant research access.
+Real numerical findings remain excluded; outside data retain their original terms.
 
-## Streamlit deployment gate
+[Repository](https://github.com/MRTRauf/pathwaylab) ·
+[Live application](https://pathwaylab-rauf.streamlit.app/) ·
+[Portfolio](https://mrtrauf.github.io/)
 
-The supported Community Cloud interface currently requires owner sign-in. An
-interactive Chrome window has been opened for that action. After authorization,
-deploy MRTRauf/pathwaylab, main, app/public_demo.py, Python 3.12, root requirements.txt
-(`.[app]`), no secrets or original datasets. Public synthetic mode is mandatory.
-
-**Actual demo URL: unavailable; no deployment success is claimed.** After deployment,
-verify the actual HTTPS URL anonymously, all five sections/interactions, source
-labels and desktop/mobile layouts. Add that verified URL to README and outreach;
-recheck both links. Account security is not bypassed. No outreach has been sent.
-
-## Maintenance and verdict
-
-See FINAL_HANDOFF.md, REPRODUCIBILITY.md, DATA_ACCESS_AND_LICENSE.md and docs/METHODS.md.
-Safe source release and local presentation are ready; the complete public-demo
-acceptance gate remains open. CV/LinkedIn/portfolio drafts include the verified
-GitHub URL and explicitly leave the live link pending.
+Community Cloud wraps the app in a frame; browser checks inspect the embedded app.
+An initial outer-wrapper blank-body timeout was a harness issue and was corrected.
+Final deployment is not inferred from a successful push or HTTP response.

@@ -21,9 +21,11 @@ def test_default_dashboard_cannot_select_local_research(monkeypatch):
     app = AppTest.from_file(
         str(Path(__file__).resolve().parents[1] / "app/streamlit_app.py"), default_timeout=30
     ).run()
-    assert app.sidebar.selectbox[0].options == ["Synthetic demonstration"]
+    assert not app.sidebar.selectbox
+    assert any("Synthetic only" in item.value for item in app.sidebar.markdown)
     for section in app.sidebar.radio[0].options:
-        app.sidebar.radio[0].set_value(section).run()
+        assert section[:2].isdigit()
+        app.sidebar.radio[0].set_value(section[3:]).run()
         assert not app.exception and not app.error
         assert any("SYNTHETIC - DEMONSTRATION ONLY" in x.value for x in app.warning)
 

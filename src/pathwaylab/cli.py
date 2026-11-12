@@ -158,7 +158,7 @@ def run(mode: str, raw: Path | None, out_dir: Path, findings: Path | None = None
         "- No academy age or developmental outcomes, so don't claim player development effects.\n"
         "- Next OBSERVED microcycle may not be the next calendar week.\n"
         "- Excludes RATIO* features based on full-season maximal demand.\n"
-        "- Results are not Brøndby IF data or proof of impact at Brøndby.\n",
+        "- Synthetic results are not real athlete data or proof of operational impact.\n",
         encoding="utf-8",
     )
     print(

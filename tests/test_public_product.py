@@ -62,7 +62,8 @@ def test_public_entrypoint_blocks_research_even_with_local_flag(monkeypatch):
         str(Path(__file__).resolve().parents[1] / "app/public_demo.py"), default_timeout=30
     ).run()
     assert not app.exception and not app.error
-    assert app.sidebar.selectbox[0].options == ["Synthetic demonstration"]
+    assert not app.sidebar.selectbox
+    assert any("Synthetic only" in item.value for item in app.sidebar.markdown)
     app.sidebar.radio[0].set_value("Player Performance Trajectories").run()
     assert not app.exception and not app.error
     assert all("EVENT-" in value for value in app.selectbox[0].options)
@@ -80,6 +81,10 @@ def test_public_filters_models_navigation_and_empty_states(monkeypatch):
     assert app.sidebar.radio[0].value == "Training load explorer" and not app.exception
     next(w for w in app.multiselect if w.label == "Fictional load players").set_value([]).run()
     assert any("No observations" in x.value for x in app.info)
+    next(button for button in app.button if button.label == "Reset filters").click().run()
+    selected = next(w for w in app.multiselect if w.label == "Fictional load players")
+    assert selected.value == sorted(load_cohort().player_id.unique())[:4]
+    assert not app.exception
     app.sidebar.radio[0].set_value("Forecasting lab").run()
     app.selectbox[0].set_value("Training median").run()
     scores, _, _ = demo_forecast(load_cohort())

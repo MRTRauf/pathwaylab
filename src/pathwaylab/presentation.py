@@ -6,86 +6,99 @@ import plotly.graph_objects as go
 import streamlit as st
 
 NAVY = "#102B52"
-BLUE = "#2B65A0"
+BLUE = "#4A8AC4"
 YELLOW = "#F4C542"
-CANVAS = "#F7F8FA"
-SLATE = "#526173"
+CANVAS = "#081B34"
+SURFACE = "#102B4A"
+ELEVATED = "#173656"
+TEXT = "#F5F8FC"
+MUTED = "#B9CBDE"
+BORDER = "#2A4966"
+SLATE = "#8FA9C4"
 
 
 def apply_theme() -> None:
     """Use system fonts and restrained responsive styling, with no remote assets."""
     st.markdown(
         """<style>
-    .stApp {background:#F7F8FA;}
-    [data-testid="stMain"] {background:#F7F8FA;}
-    [data-testid="stButton"] button {border-radius:8px;font-weight:600;}
-    [data-testid="stButton"] button:hover {border-color:#2B65A0;color:#102B52;}
-    .st-key-load_controls,.st-key-event_controls {
-      background:#EDF2F8!important;border-top:3px solid #2B65A0!important;
-      border-radius:12px;padding:20px!important;margin:12px 0 22px;}
-    .pl-hero {background:#102B52;border-left:5px solid #F4C542;border-radius:12px;
-      padding:28px 30px;margin:12px 0 24px;color:#F7F8FA;}
-    .pl-hero .pl-kicker {color:#F4C542;font-size:11px;font-weight:700;
-      letter-spacing:1.5px;text-transform:uppercase;}
-    .pl-hero h2 {color:#F7F8FA!important;font-size:30px;margin:12px 0;line-height:1.25;}
-    .pl-hero p {color:#D8E3F0;max-width:760px;line-height:1.7;margin:0;}
-    .pl-principles {display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-      margin:20px 0 28px;}
-    .pl-principle {background:#E9EFF6;border:1px solid #D8E2EE;border-radius:8px;
-      padding:13px 15px;color:#102B52;font-size:13px;font-weight:600;}
-    .pl-principle span {color:#2B65A0;margin-right:8px;}
-    [data-testid="stMainBlockContainer"] {padding-top:2.4rem;max-width:1440px;}
-    h1,h2,h3 {color:#102B52;letter-spacing:-.025em;}
-    h1 {font-weight:750!important;} h2 {font-weight:680!important;}
-    [data-testid="stSidebar"] {background:#102B52;}
-    [data-testid="stSidebar"] h1,[data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,[data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] label {color:#F7F8FA;}
-    [data-testid="stSidebar"] [data-baseweb="select"] * {color:#102B52;}
-    [data-testid="stSidebar"] [data-baseweb="select"] input {
-      -webkit-text-fill-color:#102B52;opacity:1;}
-    [data-testid="stSidebar"] [data-testid="stSelectbox"] input {
-      color:#102B52!important;-webkit-text-fill-color:#102B52!important;}
-    [data-testid="stSidebar"] a {color:#F4C542;}
-    [data-testid="stMetric"] {background:white;border:1px solid #E0E5EC;
-      border-top:3px solid #F4C542;box-shadow:0 3px 12px #102B5208;
-      border-radius:10px;padding:18px 20px;min-height:110px;}
-    [data-testid="stMetricLabel"] {color:#526173;font-size:.85rem;}
-    [data-testid="stMetricValue"] {color:#102B52;font-weight:680;}
-    [data-testid="stCaptionContainer"],
-    [data-testid="stCaptionContainer"] p {color:#526173!important;}
-    [data-testid="stCaptionContainer"] {opacity:1!important;}
-    [data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
-      color:#C7D4E6!important;}
-    [data-testid="stAlert"] [data-testid="stMarkdownContainer"] {color:#102B52;}
-    [data-testid="stVerticalBlockBorderWrapper"] {background:white;border-radius:12px;}
-    .pl-brand {display:flex;align-items:center;gap:12px;margin:10px 0 28px;}
-    .pl-mark {background:#F4C542;color:#102B52;font-size:17px;font-weight:800;
-      border-radius:7px;padding:10px 9px;letter-spacing:-1px;}
-    .pl-brand strong {color:white;font-size:21px;letter-spacing:-.5px;}
-    .pl-brand small {display:block;color:#C7D4E6;font-size:10px;letter-spacing:1.7px;}
-    .pl-card {padding:22px 24px;border:1px solid #E0E5EC;border-radius:12px;
-      background:white;min-height:168px;border-top:3px solid #2B65A0;
-      box-shadow:0 3px 12px #102B5208;}
-    .pl-card h3 {margin:6px 0 10px;font-size:21px;}
-    .pl-card p {color:#526173;line-height:1.65;margin:0;}
-    .pl-eyebrow {color:#526173;font-size:10px;letter-spacing:1.7px;font-weight:700;}
-    .pl-flow {display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0;}
-    .pl-node {border:1px solid #E0E5EC;border-radius:9px;padding:18px;
-      background:white;color:#102B52;line-height:1.6;}
-    .pl-node small {display:block;color:#526173;margin-top:6px;}
-    .pl-footer {border-top:1px solid #E0E5EC;margin-top:36px;padding-top:18px;
-      color:#526173;font-size:12px;line-height:1.8;}
-    .pl-footer a {color:#2B65A0;}
+    :root {color-scheme:dark;}
+    .stApp,[data-testid="stMain"] {background:#081B34;color:#F5F8FC;}
+    [data-testid="stHeader"] {background:#081B34;}
+    [data-testid="stMainBlockContainer"] {max-width:1350px;padding:2rem 2rem 3rem;}
+    h1,h2,h3,h4 {color:#F5F8FC;letter-spacing:-.02em;font-weight:650!important;}
+    h1 {font-size:36px!important;padding-bottom:.3rem!important;}
+    h2 {font-size:30px!important;} h3 {font-size:22px!important;}
+    h4 {font-size:20px!important;}
+    p,li {font-size:16px;line-height:1.6;}
+    [data-testid="stCaptionContainer"],[data-testid="stCaptionContainer"] p {
+      color:#B9CBDE!important;font-size:13px!important;opacity:1!important;}
+    [data-testid="stWidgetLabel"] p {font-size:14px!important;color:#F5F8FC;}
+    [data-testid="stTable"] table {width:100%;table-layout:fixed;background:#102B4A;}
+    [data-testid="stTable"] th,[data-testid="stTable"] td {
+      color:#F5F8FC;border-color:#2A4966;padding:10px 8px;font-size:14px;
+      overflow-wrap:anywhere;}
+    [data-testid="stSidebar"] {background:#06162B;border-right:1px solid #2A4966;}
+    [data-testid="stSidebar"] p,[data-testid="stSidebar"] label {color:#F5F8FC;}
+    [data-testid="stSidebar"] [role="radiogroup"] label {
+      padding:10px 9px;border-radius:8px;margin:3px 0;border-left:3px solid transparent;}
+    [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {
+      background:#214366;border-left-color:#F4C542;font-weight:700;}
+    [data-testid="stSidebar"] a,a {color:#FFE28A;}
+    [data-testid="stMetric"] {background:#173656;border:1px solid #2A4966;
+      border-top:3px solid #F4C542;border-radius:12px;padding:18px;min-height:112px;}
+    [data-testid="stMetricLabel"] p {font-size:14px;color:#B9CBDE;}
+    [data-testid="stMetricValue"] {color:#F5F8FC;font-size:32px;font-weight:700;}
+    [data-testid="stVerticalBlockBorderWrapper"] {background:#102B4A;border-radius:12px;}
+    [data-testid="stVerticalBlockBorderWrapper"]>div {border-color:#2A4966;}
+    .st-key-load_controls,.st-key-event_controls,.st-key-model_controls {
+      background:#102B4A;border:1px solid #2A4966;border-radius:12px;padding:18px;
+      margin:12px 0 20px;}
+    [data-testid="stButton"] button {border:1px solid #4A8AC4;background:#214366;
+      color:#F5F8FC;border-radius:8px;font-weight:600;min-height:42px;}
+    [data-testid="stButton"] button:hover {border-color:#F4C542;color:#FFE28A;}
+    [data-testid="stButton"] button[kind="primary"] {background:#F4C542;color:#081B34;}
+    button:focus-visible,input:focus-visible {outline:2px solid #FFE28A!important;
+      outline-offset:3px;}
+    [data-testid="stAlert"] {background:#173656;border:1px solid #2A4966;
+      border-left:3px solid #F4C542;border-radius:8px;}
+    [data-testid="stAlert"] p {color:#F5F8FC;font-size:14px;line-height:1.5;}
+    .pl-brand {display:flex;align-items:center;gap:12px;margin:8px 0 22px;}
+    .pl-mark {background:#F4C542;color:#081B34;font-size:18px;font-weight:800;
+      border-radius:8px;padding:10px;}
+    .pl-brand strong {color:#F5F8FC;font-size:23px;}
+    .pl-brand small {display:block;color:#B9CBDE;font-size:12px;}
+    .pl-status {border:1px solid #2A4966;border-left:3px solid #F4C542;
+      background:#102B4A;padding:12px 15px;border-radius:8px;margin:16px 0;}
+    .pl-status b {color:#FFE28A;font-size:13px;}
+    .pl-status span {display:block;color:#B9CBDE;font-size:14px;}
+    .pl-hero {background:#102B4A;border:1px solid #2A4966;
+      border-left:4px solid #F4C542;border-radius:14px;padding:24px 28px;margin:8px 0 16px;}
+    .pl-kicker,.pl-eyebrow {color:#FFE28A;font-size:13px;font-weight:650;}
+    .pl-hero h2 {font-size:36px!important;margin:8px 0;}
+    .pl-hero h3 {font-size:22px;margin:8px 0;color:#B9CBDE;}
+    .pl-hero p,.pl-card p,.pl-node small {color:#B9CBDE;font-size:15px;line-height:1.6;}
+    .pl-principles {display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0;}
+    .pl-principle {background:#173656;border:1px solid #2A4966;border-radius:8px;
+      padding:12px;color:#F5F8FC;font-size:14px;}
+    .pl-principle span {color:#FFE28A;margin-right:8px;}
+    .pl-card {background:#173656;border:1px solid #2A4966;border-top:3px solid #4A8AC4;
+      border-radius:12px;padding:22px;min-height:195px;}
+    .pl-card h3 {font-size:23px;margin:10px 0;}
+    .pl-card p {margin-bottom:0;}
+    .pl-flow {display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+    .pl-node {background:#102B4A;border:1px solid #2A4966;border-radius:10px;padding:16px;
+      color:#F5F8FC;font-size:15px;}
+    .pl-node small {display:block;font-size:14px;margin-top:6px;}
+    .pl-footer {border-top:1px solid #2A4966;margin-top:28px;padding-top:16px;
+      color:#B9CBDE;font-size:13px;line-height:1.8;}
     @media(max-width:768px) {
-      [data-testid="stMainBlockContainer"] {padding:1.6rem 1rem;}
+      [data-testid="stMainBlockContainer"] {padding:1.4rem 1rem;}
       .pl-flow {grid-template-columns:1fr;}
       .pl-principles {grid-template-columns:repeat(2,1fr);}
-      .pl-hero {padding:22px 20px;}
-      .pl-hero h2 {font-size:25px!important;}
-      .pl-card {padding:18px;min-height:0;margin-bottom:12px;}
-      [data-testid="stMetric"] {padding:14px 16px;min-height:94px;}
-      h1 {font-size:2.2rem!important;} h2 {font-size:1.65rem!important;}
+      .pl-hero {padding:20px;} .pl-hero h2 {font-size:30px!important;}
+      .pl-card {min-height:0;margin-bottom:12px;padding:18px;}
+      h1 {font-size:32px!important;} h2 {font-size:27px!important;}
+      [data-testid="stMetric"] {padding:15px;min-height:100px;}
     }
     </style>""",
         unsafe_allow_html=True,
@@ -95,7 +108,7 @@ def apply_theme() -> None:
 def sidebar_brand() -> None:
     st.sidebar.markdown(
         '<div class="pl-brand"><span class="pl-mark">PL</span>'
-        "<div><strong>PathwayLab</strong><small>FOOTBALL RESEARCH</small></div></div>",
+        "<div><strong>PathwayLab</strong><small>DATA SCIENCE</small></div></div>",
         unsafe_allow_html=True,
     )
 
@@ -116,10 +129,10 @@ def module_card(number: str, title: str, description: str) -> None:
 def research_hero() -> None:
     """Frame the two independent modules without suggesting a linked population."""
     st.markdown(
-        '<div class="pl-hero"><div class="pl-kicker">Independent football research</div>'
-        "<h2>Physical load. Match involvement.<br>Evidence in context.</h2>"
-        "<p>Two independent research lanes for exploring longitudinal observations, "
-        "testing historical forecasts and understanding playing exposure. "
+        '<div class="pl-hero"><div class="pl-kicker">FOOTBALL PERFORMANCE RESEARCH</div>'
+        "<h2>PathwayLab</h2><h3>Longitudinal Training Load &amp; Match Performance Analytics</h3>"
+        "<p>Explore how physical load changes over time, "
+        "compare historical forecasts and study match-performance trajectories. "
         "Public views use fictional players throughout.</p></div>",
         unsafe_allow_html=True,
     )
@@ -159,36 +172,42 @@ def forecast_workflow() -> None:
 
 def chart(fig: go.Figure, source: str) -> None:
     """Apply consistent appearance while keeping source beside each chart."""
-    palette = [BLUE, NAVY, "#B68B16", "#648AB4", "#8695A8"]
+    palette = [BLUE, YELLOW, "#75CFD4", "#A5B8E8", "#E4B3C8"]
     groups: dict[str, str] = {}
     for trace in fig.data:
         color = groups.setdefault(str(trace.name), palette[len(groups) % len(palette)])
         if trace.type in {"scatter", "bar", "box", "histogram"}:
             if trace.marker.color is None or isinstance(trace.marker.color, str):
-                trace.update(marker_color=color)
+                trace.update(
+                    marker_color=trace.marker.color
+                    if fig.layout.title.text == "Synthetic model errors"
+                    else color
+                )
                 if trace.type in {"scatter", "box"}:
                     trace.update(line_color=color)
     fig.update_layout(
-        template="plotly_white",
-        font={"family": "Arial, sans-serif", "color": NAVY, "size": 12},
-        title={"font": {"size": 15}, "x": 0, "xanchor": "left"},
+        template="plotly_dark",
+        font={"family": "Arial, sans-serif", "color": TEXT, "size": 14},
+        title={"font": {"size": 18}, "x": 0, "xanchor": "left"},
         colorway=palette,
-        paper_bgcolor="white",
-        plot_bgcolor="white",
-        margin={"l": 10, "r": 14, "t": 60, "b": 90},
+        paper_bgcolor=SURFACE,
+        plot_bgcolor=SURFACE,
+        height=480,
+        margin={"l": 14, "r": 18, "t": 65, "b": 105},
         legend={"orientation": "h", "y": -0.25, "x": 0, "title_text": ""},
-        hoverlabel={"bgcolor": "white", "font_color": NAVY},
+        hoverlabel={"bgcolor": ELEVATED, "font_color": TEXT},
+        meta={"source": source, "disclosure": "SYNTHETIC - DEMONSTRATION ONLY"},
     )
     fig.update_xaxes(showgrid=False, automargin=True, zeroline=False)
-    fig.update_yaxes(gridcolor="#E8EDF3", automargin=True, zeroline=False)
+    fig.update_yaxes(gridcolor="#294664", automargin=True, zeroline=False)
     st.plotly_chart(fig, width="stretch", theme=None, config={"displaylogo": False})
-    st.caption(source)
+    st.caption(source.replace("SYNTHETIC - DEMONSTRATION ONLY", "Synthetic fixture"))
 
 
 def footer() -> None:
     st.markdown(
         '<div class="pl-footer">Independent research by <strong>Muhammad Rauf</strong>'
         ' · <a href="https://mrtrauf.github.io/">Portfolio</a><br>'
-        "No club affiliation or endorsement. No injury, readiness or causal claims.</div>",
+        "Independent research. No injury, readiness or causal claims.</div>",
         unsafe_allow_html=True,
     )

@@ -16,7 +16,8 @@ def test_public_demo_never_loads_real_research(monkeypatch):
         str(Path(__file__).resolve().parents[1] / "app/streamlit_app.py"), default_timeout=30
     ).run()
     for section in app.sidebar.radio[0].options:
-        app.sidebar.radio[0].set_value(section).run()
+        assert section[:2].isdigit()
+        app.sidebar.radio[0].set_value(section[3:]).run()
         assert not app.exception and not app.error
         assert any("SYNTHETIC - DEMONSTRATION ONLY" in w.value for w in app.warning)
 

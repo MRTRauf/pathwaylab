@@ -80,4 +80,4 @@ must preserve this scope. External data keep their own terms. See DATA_ACCESS_AN
 and FINAL_RELEASE_REPORT.md for current decisions/status. Original research is
 exploratory and conditional retrospective forecasting, with small dependent samples,
 unverified prospective timing and event inclusion sensitivity. Proposed connected
-club research has not occurred; no Brøndby affiliation or endorsement exists.
+matched-data research has not occurred; no external affiliation is claimed.

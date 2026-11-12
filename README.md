@@ -1,157 +1,136 @@
-# PathwayLab
+# PathwayLab — Football Data Science & Performance Analytics
 
-**Football Training Load & Player Performance Analytics**
+Independent research software for longitudinal physical load, historical forecasting
+and exposure-aware match-performance analysis.
 
-Independent football research software for longitudinal load analysis, temporal
-forecasting and exposure-aware match involvement—with reproducibility and clear
-evidence boundaries throughout.
+**[Live application](https://pathwaylab-rauf.streamlit.app/) ·
+[GitHub](https://github.com/MRTRauf/pathwaylab) ·
+[Author portfolio](https://mrtrauf.github.io/)**
 
-![PathwayLab synthetic dashboard: independent physical-load and event-analysis lanes](assets/screenshots/overview.png)
+![PathwayLab navy synthetic research workspace](assets/screenshots/overview.png)
 
 **SYNTHETIC DEMONSTRATION - NOT REAL PLAYER DATA**  
 **SYNTHETIC - DEMONSTRATION ONLY**
 
-The public application uses independently generated fictional observations. Every
-displayed sample size, rate and demonstration forecast score is calculated from
-those fixtures. Original GPS/event records and real individual predictions are not
-bundled. [Public GitHub repository](https://github.com/MRTRauf/pathwaylab).
-The live demo awaits Streamlit Community Cloud account authorization.
+The public app generates fictional observations independently. It does not bundle
+external player records, individual research predictions or private analytical outputs.
 
-## Why this project
+## Research objectives
 
-Football indicators depend on schedule, role, playing exposure and observation
-coverage. PathwayLab asks three focused questions:
+- Describe within-player physical-load variation without treating repeated rows as independent athletes.
+- Compare historical forecasting approaches using shared chronological target boundaries.
+- Describe match involvement while keeping playing exposure, coverage and uncertainty visible.
 
-- How much observed physical-load variation is within versus between players?
-- Can strictly historical features forecast later observed load beyond simple baselines?
-- How do match-involvement rates change across appearances and available seasons?
+## Two independent modules
 
-The software brings data engineering, exploratory longitudinal statistics,
-machine learning evaluation and research visualization into an auditable workflow.
-It does not predict injury, readiness, player potential or causal training effects.
+**Training Load Intelligence** covers verified ingestion, descriptions,
+repeated-measures modelling and chronological next-session forecasting.
 
-## Explore the application
+**Player Performance Trajectories** covers event validation, estimated exposure,
+per-90 metrics, prior-only windows and sensitivity to observation inclusion.
 
-| Section | What it shows |
+The original GPS and event sources contain **unlinked people**. No player-level
+join exists. The two public generators also use separate DEMO and EVENT identities.
+
+## Dashboard walkthrough
+
+| Section | Controls and output |
 |---|---|
-| Research overview | Two independent analysis lanes, computed demo coverage and the workflow |
-| Training load explorer | Fictional-player/date/position filters, explicit units and longitudinal distributions |
-| Forecasting lab | Calculated synthetic holdout MAE/RMSE, historical baselines and prediction diagnostics |
-| Player Performance Trajectories | Simulated exposure, season rates, shifted windows and peer distributions |
-| Methods and limitations | Research design, provenance, temporal leakage controls and interpretation limits |
+| Research Overview | Computed cohort counts, independent research lanes and workflow |
+| Training Load Explorer | Player/position/date/metric controls, reset, load histories and distributions |
+| Forecasting Lab | Three calculated synthetic baselines, MAE/RMSE, observed/predicted plots and errors |
+| Player Performance Trajectories | Simulated exposure, season comparison, historical passes and peer distributions |
+| Methods and Limitations | Questions, source boundaries, assumptions and reproduction |
 
-The interface uses an independent navy/yellow visual identity, system fonts,
-responsive layouts and source captions. It uses no club logos or third-party imagery.
-The overview banner, research-principles row, shaded control panels and consistent
-metric cards give the workspace a restrained navy-and-yellow identity.
-See [presentation verification](docs/UI_POLISH.md) for the prepared update's checks.
+The navy canvas, integrated controls, readable charts and numbered navigation form
+one research workspace. [Five-minute guide](docs/DASHBOARD_GUIDE.md).
 
-## Architecture
+## Workflow and architecture
 
-```mermaid
+~~~mermaid
 flowchart LR
-    G[Independent GPS source] --> Q[Adapter and quality checks]
-    Q --> L[Load descriptions and repeated-measures models]
-    Q --> F[Chronological forecast evaluation]
-    E[Independent event source] --> A[Exposure and trajectory analysis]
-    L --> R[Private research viewer]
-    F --> R
-    A --> R
-    T[Independent synthetic generators] --> P[Public demonstration]
-```
+    A[Verified GPS source] --> B[QA and repeated-measures analysis]
+    A --> C[Historical features and temporal forecasts]
+    D[Independent event source] --> E[Exposure and trajectory analysis]
+    B --> F[Private research artifacts]
+    C --> F
+    E --> F
+    G[Independent synthetic generators] --> H[Public demonstration]
+~~~
 
-**GPS and event people are unrelated.** No player-level join exists between these
-sources. The two public-demo cohorts also use separate fictional identities.
+[Complete stage-by-stage workflow](docs/WORKFLOW.md) ·
+[Actual module architecture](docs/ARCHITECTURE.md) · [Methods](docs/METHODS.md)
 
-## Run the data-free demo
+## Methodology and findings
 
-Python 3.10 or newer. From the project root:
+Real research targets next observed session HSR using earlier observations and
+training-only preprocessing. All players share target-date boundaries. Full-season
+RATIO fields are excluded. Repeated-measures diagnostics and event inclusion
+sensitivities constrain interpretation.
 
-```bash
+The public forecast instead predicts next observed block cumulative HSR. Ridge,
+persistence and training median score the same synthetic targets; metrics are
+calculated, not copied from real experiments. Event minutes/counts are simulated.
+Original numerical findings remain withheld pending separate publication clearance.
+
+## Repository structure
+
+~~~text
+app/                  public entrypoint and guarded local viewer
+src/pathwaylab/       ingestion, research algorithms, generators and presentation
+tests/                safe fixtures, chronology and public-access regressions
+docs/                 workflow, architecture, methods and dashboard guide
+assets/screenshots/   genuine synthetic browser captures
+.streamlit/           native dark-theme configuration
+.github/workflows/    data-independent CI
+~~~
+
+## Install and run
+
+Python 3.10+; locally verified on Python 3.12. From the project root:
+
+~~~bash
 python -m venv .venv
 # PowerShell: .\.venv\Scripts\Activate.ps1
 # macOS/Linux: source .venv/bin/activate
 python -m pip install -e '.[dev,app,research]'
-pytest -q -m "not integration"
+python scripts/generate_demo.py
 python -m pathwaylab.cli --mode demo
+pytest -q -m "not integration"
 python -m streamlit run app/public_demo.py
-```
+~~~
 
-The public entry point forces synthetic-only mode, even if a local research flag
-is accidentally present. It requires no datasets, login, API key or network data
-download. The CLI demonstration is also reproducible and explicitly synthetic.
-See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for tested commands and environments.
+No originals or credentials are needed. [Tested reproduction and outputs](REPRODUCIBILITY.md).
 
-## Research modules and principles
+## Testing and CI
 
-**Physical load.** Checksummed ingestion, explicit coverage and denominators,
-descriptive profiles, random-intercept diagnostics and target-date forecasting.
-Real research predicts next-observed-session HSR with shifted history and
-training-only preprocessing. Full-season-normalized RATIO* fields are excluded.
-Validation supports model selection before final-period evaluation.
+Tests cover chronology, calculated scores, exposure, missing artifacts, widget
+interactions and public guards. CI runs full Ruff/format checks, imports,
+dependencies, offline tests, synthetic CLI and wheel packaging.
+[Actual Actions runs](https://github.com/MRTRauf/pathwaylab/actions).
+Local and live checks are distinguished in [redesign review](docs/UI_REDESIGN_REVIEW.md).
 
-**Match involvement.** A separate source-ID lane validates events/lineups,
-reconstructs estimated exposure and computes summed-count per-90 rates. Historical
-windows use prior appearances only. Inclusion, missing coverage, roles, tactics
-and estimated minutes constrain longitudinal interpretations.
+## Data, license and attribution
 
-**Public calculation.** The toy forecast reuses the existing demo's cumulative
-next-training-block target and compares Ridge, persistence and training median
-on identical targets. Its scores are not comparable to the real session benchmark.
-The event generator independently simulates counts and minutes. It is not an
-event/tracking integration or a professional-player model.
+Eligible original code uses the [MIT License](LICENSE). Third-party data/packages
+retain their terms. References: [Zenodo GPS record](https://zenodo.org/records/18986229),
+[dataset descriptor](https://doi.org/10.3390/data11040084) and
+[StatsBomb Open Data](https://github.com/hudl/open-data).
+[Rights boundary](DATA_ACCESS_AND_LICENSE.md) · [Acknowledgements](ACKNOWLEDGEMENTS.md).
 
-Detailed definitions are in [docs/METHODS.md](docs/METHODS.md). Original numerical
-findings, private audits and real screenshots are withheld from this public package.
+## Scientific limitations and future research
 
-## Engineering and verification
+Original samples are small and dependent; exposure/coding metadata are incomplete.
+Forecasts are conditional retrospective estimates assuming a known target date,
+not prospective operational validation. Event interpretation depends on estimated
+minutes and inclusion. No injury, readiness, causal effect or player-development
+claim follows.
 
-- Deterministic fixtures and independently recomputed demo metrics.
-- Tests for leakage, chronology, denominators, missing artifacts and forged-mode access.
-- Full Ruff lint and formatting checks, import/dependency checks and wheel packaging.
-- Offline CI designed to run without downloaded research records.
-- Genuine Chrome inspection at 1440, 1280, 768 and 390 pixels.
-
-Release preparation passed 54 public fixture tests, 64 original-workspace tests,
-full Ruff checks and wheel packaging on Windows/Python 3.12. Genuine Chrome
-checks covered all five sections at four widths. The ten extra local tests require
-authorized research artifacts and are not bundled with the public fixtures.
-Exact evidence and publication status are recorded in FINAL_RELEASE_REPORT.md.
-Hosted [GitHub Actions passed](https://github.com/MRTRauf/pathwaylab/actions/runs/43160709722),
-including 54 offline tests, full style checks, demo execution and packaging. No clinical,
-prospective deployment or accessibility certification is implied.
-
-## Data, licensing and limitations
-
-Research source references: [Zenodo GPS record](https://zenodo.org/records/18986229),
-[Sierra-Casas et al. dataset descriptor](https://doi.org/10.3390/data11040084) and
-[StatsBomb Open Data](https://github.com/hudl/open-data). These populations are
-unlinked. Their original terms apply separately from any original-code license.
-See [DATA_ACCESS_AND_LICENSE.md](DATA_ACCESS_AND_LICENSE.md) and
-[ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md).
-
-Original eligible PathwayLab code is licensed under the [MIT License](LICENSE). External datasets are not
-relicensed or redistributed here. The public app is deliberately data-free.
-
-The real GPS sample is small and dependent, with incomplete exposure/coding
-metadata. Forecasting is conditional retrospective prediction assuming a known
-target date, not demonstrated prospective operational effectiveness. Event findings
-are sensitive to coverage and timestamp inclusion. Counts and load do not establish
-fitness, talent or player development. These limitations remain part of the project.
-
-## Future linked-data research
-
-A proposed MSc extension asks whether verified prior playing exposure and frozen
-pre-session plans add predictive value beyond GPS history. That question requires
-approved matched data, known-at timestamps, governance and a feasible sample. No
-such connected-data experiment, club access or supervision is claimed.
+A future matched-data study would require approved identities, available-at
+timestamps, governance and an adequate archive. No such study or external
+collaboration is claimed.
 
 ## Author
 
-**Muhammad Rauf** — Erasmus Mundus MSc in Communications Engineering and Data
-Science (CoDaS), currently at UPC BarcelonaTech after study at Aalto University.
-
+Muhammad Rauf — independent football data science research.
 [Portfolio](https://mrtrauf.github.io/) · [GitHub profile](https://github.com/MRTRauf)
-
-Independent research portfolio. No official affiliation, collaboration or endorsement
-by Brøndby IF. The project supports exploration of Spring 2027 MSc thesis opportunities.

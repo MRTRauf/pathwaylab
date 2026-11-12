@@ -38,7 +38,7 @@ def navigate(section: str) -> None:
 
 
 def render_demo(page: str) -> None:
-    st.warning(PUBLIC_LABEL + "\n\n" + LABEL + " · fictional cohorts · deterministic fixtures")
+    st.warning(PUBLIC_LABEL + " · " + LABEL)
     loads, events, scores, predictions, protocol = demo_bundle()
     if page == "Research overview":
         overview(loads, events)
@@ -72,7 +72,7 @@ def overview(loads: pd.DataFrame, events: pd.DataFrame) -> None:
         [loads.player_id.nunique(), len(loads), events.match_id.nunique(), len(events)],
     ):
         col.metric(label, f"{value:,}")
-    st.caption(LOAD_SOURCE + " · " + EVENT_SOURCE)
+    st.caption("Independent generated cohorts · load seed 42 · event seed 43")
     st.subheader("Explore the research lanes")
     left, right = st.columns(2)
     with left:
@@ -145,6 +145,12 @@ def overview(loads: pd.DataFrame, events: pd.DataFrame) -> None:
         )
 
 
+def reset_load_filters() -> None:
+    """Restore the generated cohort's default observation window and selections."""
+    for key in ("load_metric", "load_positions", "load_dates", "load_players"):
+        st.session_state.pop(key, None)
+
+
 def explorer(loads: pd.DataFrame) -> None:
     section_intro(
         "Training load explorer",
@@ -161,6 +167,7 @@ def explorer(loads: pd.DataFrame) -> None:
                 "Physical-load measure",
                 list(NAMES),
                 index=1,
+                key="load_metric",
                 format_func=lambda k: f"{NAMES[k]} ({UNITS[k]})",
             )
         with controls[1]:
@@ -168,16 +175,21 @@ def explorer(loads: pd.DataFrame) -> None:
                 "Fictional positions",
                 sorted(training.position.unique()),
                 default=sorted(training.position.unique()),
+                key="load_positions",
             )
         with controls[2]:
             dates = st.date_input(
-                "Date range", (training.date.min().date(), training.date.max().date())
+                "Date range",
+                (training.date.min().date(), training.date.max().date()),
+                key="load_dates",
             )
         players = st.multiselect(
             "Fictional load players",
             sorted(training.player_id.unique()),
             default=sorted(training.player_id.unique())[:4],
+            key="load_players",
         )
+        st.button("Reset filters", on_click=reset_load_filters)
     if len(dates) != 2:
         st.info("Choose a start and end date to display the observation window.")
         return
@@ -195,7 +207,9 @@ def explorer(loads: pd.DataFrame) -> None:
     a.metric("Selected observations", f"{len(view):,}")
     b.metric("Fictional players", str(view.player_id.nunique()))
     c.metric(f"Mean {metric}", f"{view[metric].mean():,.1f} {UNITS[metric]}")
-    st.caption(LOAD_SOURCE + " · non-match rows · repeated observations, not independent athletes")
+    st.caption(
+        "Synthetic load fixture · non-match rows · repeated observations, not independent athletes"
+    )
     labels = {
         "date": "Observation date",
         metric: f"{NAMES[metric]} ({UNITS[metric]})",
@@ -209,7 +223,8 @@ def explorer(loads: pd.DataFrame) -> None:
                 x="date",
                 y=metric,
                 color="player_id",
-                markers=True,
+                markers=False,
+                line_dash="player_id",
                 hover_data=["position", "md_day"],
                 labels=labels,
                 title="Load over time",
@@ -259,8 +274,9 @@ def forecasting(scores: pd.DataFrame, predictions: pd.DataFrame, protocol: dict)
         "Demo target: the next observed training block's cumulative HSR (synthetic microcycle). "
         "The separate real research targets one observed session; these metrics are not comparable."
     )
-    st.caption(LOAD_SOURCE + " · generated data only · no professional-player scores")
-    chosen = st.selectbox("Demonstration model", list(scores.Model))
+    st.caption("Synthetic block-level forecast · generated observations only")
+    with st.container(border=True, key="model_controls"):
+        chosen = st.selectbox("Demonstration model", list(scores.Model))
     row = scores.loc[scores.Model.eq(chosen)].iloc[0]
     a, b, c = st.columns(3)
     a.metric("Synthetic MAE", f"{row['MAE (m)']:.1f} m")
@@ -273,7 +289,16 @@ def forecasting(scores: pd.DataFrame, predictions: pd.DataFrame, protocol: dict)
     left, right = st.columns(2)
     with left, st.container(border=True):
         chart(
-            px.bar(scores, x="Model", y="MAE (m)", title="Same targets, fair baselines"),
+            px.bar(
+                scores,
+                x="Model",
+                y="MAE (m)",
+                color="Model",
+                color_discrete_map={
+                    name: "#F4C542" if name == chosen else "#4A8AC4" for name in scores.Model
+                },
+                title="Synthetic model errors",
+            ),
             LOAD_SOURCE,
         )
     with right:
@@ -287,10 +312,10 @@ def forecasting(scores: pd.DataFrame, predictions: pd.DataFrame, protocol: dict)
             "All players share a target-block cutoff. Preprocessing fits training data only. "
             "Ridge uses fixed alpha=10; this demonstration does not tune on the holdout."
         )
-        st.dataframe(
-            scores.style.format({"MAE (m)": "{:.1f}", "RMSE (m)": "{:.1f}"}),
-            hide_index=True,
-            width="stretch",
+        st.table(
+            scores.set_index("Model").style.format(
+                {"MAE (m)": "{:.1f}", "RMSE (m)": "{:.1f}", "Targets": "{:.0f}"}
+            ),
         )
     view = predictions.loc[predictions.model.eq(chosen)]
     left, right = st.columns(2)
@@ -337,7 +362,7 @@ def trajectories(events: pd.DataFrame) -> None:
         "Describe involvement across simulated "
         "appearances. Keep exposure and sample size beside each comparison.",
     )
-    st.caption(EVENT_SOURCE + " · fictional EVENT IDs · unrelated to the load-demo cohort")
+    st.caption("Synthetic EVENT IDs · independent of the load-demo cohort")
     with st.container(border=True, key="event_controls"):
         st.markdown("#### Comparison controls")
         st.caption("Select a fictional player and seasons. Rates always retain simulated exposure.")
@@ -393,7 +418,7 @@ def trajectories(events: pd.DataFrame) -> None:
                 y="prior_passes_per90",
                 markers=True,
                 labels={"date": "Simulated match date", "prior_passes_per90": "Prior passes / 90"},
-                title="Prior-appearance window",
+                title="Prior passes / 90",
             ),
             EVENT_SOURCE,
         )
@@ -423,7 +448,7 @@ def trajectories(events: pd.DataFrame) -> None:
     )
     season["actions / 90"] = 90 * season.actions / season.minutes
     with st.expander("Season denominators and rates"):
-        st.dataframe(season.round(1), width="stretch")
+        st.table(season.round(1))
     st.warning(
         "Variation in involvement is not proof of development. In the real study, season "
         "coverage and the timestamp inclusion rule change paired findings. Both real "
@@ -438,6 +463,17 @@ def methods() -> None:
     )
     tabs = st.tabs(["Research design", "Data boundaries", "Reproduce"])
     with tabs[0], st.container(border=True):
+        forecast_workflow()
+        st.markdown(
+            "[End-to-end workflow](https://github.com/MRTRauf/pathwaylab/blob/main/docs/WORKFLOW.md)"
+        )
+        with st.expander("Longitudinal statistics and event methodology"):
+            st.write(
+                "The separate local load pipeline uses repeated-measures models and diagnostics. "
+                "The event pipeline validates lineups, reconstructs estimated playing exposure, "
+                "builds player-match rates and compares inclusion sensitivities. "
+                "Public event minutes are simulated; the two populations are never joined."
+            )
         st.markdown("### Three questions")
         st.write(
             "How does physical load vary within players? Do historical features forecast "

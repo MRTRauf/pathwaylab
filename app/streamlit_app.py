@@ -18,11 +18,13 @@ from pathwaylab.eda import NAMES, UNITS
 from pathwaylab.presentation import apply_theme, sidebar_brand
 from pathwaylab.presentation import chart as styled_chart
 
-st.set_page_config(page_title="PathwayLab | Research", layout="wide")
+st.set_page_config(
+    page_title="PathwayLab - Football Data Science & Performance Analytics", layout="wide"
+)
 apply_theme()
 sidebar_brand()
 st.title("PathwayLab")
-st.caption("Football Training Load & Player Performance Analytics")
+st.caption("Football Data Science & Performance Analytics")
 data_modes = ["Synthetic demonstration"]
 local_research_enabled = (
     os.environ.get("PATHWAYLAB_ENABLE_LOCAL_RESEARCH") == "1"
@@ -30,22 +32,41 @@ local_research_enabled = (
 )
 if local_research_enabled:
     data_modes.append("Verified local research")
-mode = st.sidebar.selectbox("Data mode", data_modes)
+if local_research_enabled:
+    mode = st.sidebar.selectbox("Data mode", data_modes)
+else:
+    mode = "Synthetic demonstration"
+    st.sidebar.markdown(
+        '<div class="pl-status"><b>DEMO DATA</b><span>Synthetic only</span></div>',
+        unsafe_allow_html=True,
+    )
 page = st.sidebar.radio(
     "Research sections",
     [
         "Research overview",
         "Training load explorer",
         "Forecasting lab",
-        "Methods and limitations",
         "Player Performance Trajectories",
+        "Methods and limitations",
     ],
     key="research_section",
+    format_func=lambda value: {
+        "Research overview": "01 Research overview",
+        "Training load explorer": "02 Training load explorer",
+        "Forecasting lab": "03 Forecasting lab",
+        "Player Performance Trajectories": "04 Player Performance Trajectories",
+        "Methods and limitations": "05 Methods and limitations",
+    }[value],
 )
 st.sidebar.caption(
     "Independent synthetic demonstration. No real player records loaded."
     if not local_research_enabled
     else "Private research viewer. No automatic research fitting or uploads."
+)
+st.sidebar.markdown(
+    "[GitHub](https://github.com/MRTRauf/pathwaylab) · "
+    "[Documentation](https://github.com/MRTRauf/pathwaylab/blob/main/docs/WORKFLOW.md) · "
+    "[Portfolio](https://mrtrauf.github.io/)"
 )
 if not local_research_enabled or mode != "Verified local research":
     from pathwaylab.demo_dashboard import render_demo

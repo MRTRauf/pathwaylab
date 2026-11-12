@@ -1,77 +1,78 @@
 # Reproducibility
 
-The public application and fixture tests need no original research datasets,
-credentials or runtime data downloads. Use Python 3.10+; the local release checks
-use Python 3.12.10 on Windows. Hosted Linux verification is reported only after an
-actual Actions run.
+## A. Public synthetic quickstart
 
-## Install and run
+Use Python 3.10+; local validation uses Windows/Python 3.12, CI uses Ubuntu/Python
+3.11. Streamlit 1.55+ is required by the presentation configuration. No original
+dataset, credential or runtime downloader is needed.
 
-```bash
+PowerShell, from the repository root:
+
+~~~powershell
 python -m venv .venv
-# PowerShell: .\.venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
+.\.venv\Scripts\Activate.ps1
 python -m pip install -e '.[dev,app,research]'
 python -m pip check
-python -m ruff check src app scripts tests
-python -m ruff format --check src app scripts tests
-pytest -q -m "not integration"
+python scripts/generate_demo.py
 python -m pathwaylab.cli --mode demo
-python -m streamlit run app/public_demo.py
-```
-
-`app/public_demo.py` is the public deployment entry point. It sets the synthetic-only
-guard before executing the existing viewer. Even an accidentally present local
-research flag cannot expose research through that entry point. The synthetic
-generators use seeds 42 and 43; outputs are calculated rather than hardcoded.
-
-The CLI toy experiment predicts next-observed-training-block cumulative HSR;
-the independent real study predicts a session. Synthetic metrics are labelled
-**SYNTHETIC - DEMONSTRATION ONLY** and must not be quoted as football findings.
-
-## Public versus local tests
-
-The original research workspace retains the complete suite, including ten
-integration checks that need authorized external files or private saved outputs.
-The curated public snapshot includes the fixture-only tests; private-data
-integration assertions and their real benchmark constants remain local. No original
-test assertion was weakened or removed from that research workspace. Public CI
-does not download records or rely on unshared research artifacts.
-
-Exact observed counts, versions, durations, browser cases and CI status are recorded
-in FINAL_RELEASE_REPORT.md after execution. Do not substitute a previous phase's
-test count for the current run. On Windows, if pytest temporary-directory ownership
-fails, use a fresh workspace-local base, for example:
-
-```powershell
 New-Item -ItemType Directory -Force outputs | Out-Null
 pytest -q -m "not integration" --basetemp=outputs/pytest-review -o cache_dir=outputs/pytest-cache
-```
+python -m ruff check src app scripts tests
+python -m ruff format --check src app scripts tests
+python -m pip wheel . --no-deps -w dist
+python -m streamlit run app/public_demo.py
+~~~
 
-## Explicit authorized research reproduction
+On macOS/Linux use source .venv/bin/activate after creating the venv. The Python
+commands are portable. Ordinary pytest -q also works where the system temporary
+directory permits it; the explicit workspace basetemp avoids Windows ownership
+problems. Use a fresh temporary directory for a new review.
 
-Read [data access/rights](DATA_ACCESS_AND_LICENSE.md) before acquiring external
-data. The public application never invokes these commands:
+Expected generated outputs:
 
-```bash
-python scripts/download_zenodo.py --with-dictionary
+| Command | Output and interpretation |
+|---|---|
+| scripts/generate_demo.py | data/synthetic/demo_training_sessions.csv, fake sessions, fixed seed 42 |
+| CLI --mode demo | outputs/demo/REPORT.md, results.json, features, predictions and labelled figures |
+| app/public_demo.py | Five pages; independent event fixture uses seed 43 in memory |
+| pip wheel | Wheel under dist; datasets and private artifacts excluded |
+
+DEMO load IDs and EVENT IDs are separate fictional cohorts. Demo errors measure
+next-observed-block cumulative HSR; real research targets one observed session.
+All displayed scores are calculated. **SYNTHETIC - DEMONSTRATION ONLY**.
+
+The entrypoint forces PATHWAYLAB_PUBLIC_DEMO=1. Even an accidentally configured
+PATHWAYLAB_ENABLE_LOCAL_RESEARCH=1 cannot grant research access through that
+entrypoint. URL/widget changes cannot override the server branch. Public startup
+does not read original files.
+
+## B. Authorized real-data research
+
+Review [data rights](DATA_ACCESS_AND_LICENSE.md), then follow the actual commands
+and stage definitions in [WORKFLOW.md](docs/WORKFLOW.md). Originals, processed
+records, individual predictions, fitted outputs and private reports remain ignored.
+The public snapshot retains the algorithms; ten original-data integration checks
+and real golden values stay in the original research workspace.
+
+Verification and ingestion are safe read/QA checks on already acquired files:
+
+~~~bash
 python scripts/download_zenodo.py --verify-only --with-dictionary
-python -m pathwaylab.cli --mode zenodo
-python -m pathwaylab.cli --mode eda
-python scripts/run_inference.py
-python -m pathwaylab.cli --mode forecast
-python scripts/run_events.py discover
-python scripts/run_events.py download
-python scripts/run_events.py analyze
-```
+python -m pathwaylab.cli --mode zenodo --out outputs/zenodo-review
+~~~
 
-These assume project-root execution and appropriate permissions. Real data and
-outputs stay ignored. Different output/report paths should be used for an audit
-rerun; no validated result should be silently overwritten. `run_events` writes
-additional narratives only when `report_dir` is explicit. Strict event chronology
-remains the default; the optional receipt-clock sensitivity must be separately
-labelled and stored. It does not repair source timestamps.
+Do not rerun expensive experiments merely for presentation. New research audits
+must use separate output/report paths. Preserve strict and sensitivity event
+versions separately. Never join independent sources by name or similar IDs.
 
-See [methods](docs/METHODS.md) for target-date chronology, training-only preprocessing,
-unverified prospective availability and independent source boundaries. Code,
-data/derivative rights and deployment authorization are separate gates.
+For a private viewer only, start a new process with the trusted local flag,
+authorized artifacts and loopback binding, as documented in the workflow.
+That flag is not authentication and must not be used on public hosting.
+
+## Evidence and deployment
+
+Use app/public_demo.py, main, Python 3.12 and root requirements.txt (.[app]) on
+Community Cloud. No application secret is required. The dark native theme lives
+in root .streamlit/config.toml; presentation and Plotly share explicit navy tokens.
+Inspect the actual HTTPS app after rebuild rather than infer success from CI.
+[Review](docs/UI_REDESIGN_REVIEW.md) separates executed local, CI and live checks.

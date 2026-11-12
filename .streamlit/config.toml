@@ -1,22 +1,23 @@
 [theme]
-base = "light"
-primaryColor = "#2B65A0"
-backgroundColor = "#F7F8FA"
-secondaryBackgroundColor = "#EEF2F7"
-textColor = "#102B52"
+base = "dark"
+primaryColor = "#F4C542"
+backgroundColor = "#081B34"
+secondaryBackgroundColor = "#173656"
+textColor = "#F5F8FC"
+borderColor = "#2A4966"
+baseFontSize = 16
 font = "sans serif"
 
 [theme.sidebar]
 primaryColor = "#F4C542"
-backgroundColor = "#102B52"
-secondaryBackgroundColor = "#FFFFFF"
-textColor = "#F7F8FA"
+backgroundColor = "#06162B"
+secondaryBackgroundColor = "#102B4A"
+textColor = "#F5F8FC"
+borderColor = "#2A4966"
 
 [browser]
 gatherUsageStats = false
-
 [client]
 toolbarMode = "viewer"
-
 [server]
 enableStaticServing = false
