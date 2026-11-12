@@ -65,3 +65,16 @@ Real numerical findings remain excluded; outside data retain their original term
 Community Cloud wraps the app in a frame; browser checks inspect the embedded app.
 An initial outer-wrapper blank-body timeout was a harness issue and was corrected.
 Final deployment is not inferred from a successful push or HTTP response.
+
+
+## Deployment correction — completed
+
+The initial live-after check correctly rejected stale imported white-card styling.
+Runtime commit 11809fa changes regular package installation to editable repository
+installation, without modifying the entrypoint, theme, presentation or science.
+The isolated import regression and 65 full / 55 offline tests passed.
+[Hosted CI passed](https://github.com/MRTRauf/pathwaylab/actions/runs/43169158005).
+All five actual live pages then passed at desktop/mobile: 10 cases, 23 interaction
+checks, 18 genuine screenshots, computed dark surfaces and synthetic-only status.
+This supersedes the earlier pending-delivery statement. Details:
+[deployment fix](docs/DEPLOYMENT_FIX.md).
