@@ -74,12 +74,16 @@
       "bytes": 3881
     },
     "docs/ARCHITECTURE.md": {
-      "sha256": "e3b21f6c4ed565bd91afdfb2a26d53f16784b7b98a563770eb3258292b0d48bf",
-      "bytes": 3220
+      "sha256": "226e0761542754b8e5e0533ffc2a38c476dbb6458ae32340090892287a421167",
+      "bytes": 3284
     },
     "docs/DASHBOARD_GUIDE.md": {
       "sha256": "664c842667608a9958633dd3905b0eed398344422d820f76df9c4cd539174725",
       "bytes": 3142
+    },
+    "docs/DEPLOYMENT_FIX.md": {
+      "sha256": "25697a288868b2bf3eb32efcbe12d07687ad82f0ef041c45b1336a50c2c375ab",
+      "bytes": 1861
     },
     "docs/LINK_VALIDATION.md": {
       "sha256": "8edfaa512645a148d610fde40f0248212069ad90fe425aa54906dd81acd11d63",
@@ -102,8 +106,8 @@
       "bytes": 7709
     },
     "FINAL_HANDOFF.md": {
-      "sha256": "e637e1471e9216068380613170d0ef547e05df4200a5f13e77efb906b44de578",
-      "bytes": 4535
+      "sha256": "68670e600c12a4dc57ff22a7af37e96d13224f8b69f72a0e4a2c19cbd89b37e7",
+      "bytes": 4537
     },
     "FINAL_RELEASE_REPORT.md": {
       "sha256": "c57f3b17650b6f48c16cd9a93431b0cacd858d357f0e2ad1e09a550ea18eeab1",
@@ -122,12 +126,12 @@
       "bytes": 6071
     },
     "REPRODUCIBILITY.md": {
-      "sha256": "ec0cd91ece3755a6c5d95e3bc5a649f682f58d31fea86096fdb30a88f72c1289",
-      "bytes": 3718
+      "sha256": "5f51e4ed00a33e074844c20d8e82a448984e5d23748315101c60668bec0652dc",
+      "bytes": 3721
     },
     "requirements.txt": {
-      "sha256": "531bcfaf8dff03cb41f1aff73462164a84e6aaa3ba3491b95a570e178406f8aa",
-      "bytes": 7
+      "sha256": "2b77cba00752ec79a3471196832754038eb37f6bb411806f197003d13f158388",
+      "bytes": 10
     },
     "scripts/download_zenodo.py": {
       "sha256": "c19e3bfb1366191deadbcb6a1fae80812eb8202333717eaeebe44ad1ede4befb",
@@ -244,6 +248,10 @@
     "tests/test_data.py": {
       "sha256": "b427863a9400a7986be649559776bb8eac0fa5f2dcbd15eaa9658a189790fcca",
       "bytes": 1680
+    },
+    "tests/test_deployment_imports.py": {
+      "sha256": "9a4eccda9c67bac403675b23b55c595bb1ef67b5d5f602f173b203e62ad1217b",
+      "bytes": 1383
     },
     "tests/test_eda.py": {
       "sha256": "7591c420fbec394ab693d998892bfb16e0868de44934b84c0da2602ad89d4e56",

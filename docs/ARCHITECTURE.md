@@ -50,7 +50,7 @@ Root .streamlit/config.toml selects the native dark theme. Scoped CSS handles
 hierarchy and spacing; Plotly backgrounds, labels and hover appearance are explicit.
 System fonts and project-native text/CSS avoid external assets.
 
-Community Cloud uses main, app/public_demo.py and root requirements.txt (.[app]).
+Community Cloud uses main, app/public_demo.py and root requirements.txt (-e .[app]).
 Python 3.12 is the local deployment target; package metadata permits Python 3.10+.
 No secret is required. A successful push/build is distinct from live-browser validation.
 

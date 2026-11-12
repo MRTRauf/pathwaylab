@@ -71,7 +71,7 @@ That flag is not authentication and must not be used on public hosting.
 
 ## Evidence and deployment
 
-Use app/public_demo.py, main, Python 3.12 and root requirements.txt (.[app]) on
+Use app/public_demo.py, main, Python 3.12 and root requirements.txt (-e .[app]) on
 Community Cloud. No application secret is required. The dark native theme lives
 in root .streamlit/config.toml; presentation and Plotly share explicit navy tokens.
 Inspect the actual HTTPS app after rebuild rather than infer success from CI.

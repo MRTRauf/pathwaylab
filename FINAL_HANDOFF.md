@@ -55,8 +55,8 @@ titles, legends, filters, empty states and source captions after layout changes.
 ## Streamlit Community Cloud
 
 After approval and verified GitHub publication, deploy the reviewed public branch
-using **app/public_demo.py**, Python 3.12 and root requirements.txt (`.[app]`).
-The project config disables telemetry/static serving and uses the navy/light theme.
+using **app/public_demo.py**, Python 3.12 and root requirements.txt (`-e .[app]`).
+The project config disables telemetry/static serving and uses the navy dark theme.
 No dataset, API credential or application secret is required. Do not enable private
 research on the hosted app; the public wrapper must remain in use.
 
