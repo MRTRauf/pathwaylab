@@ -42,24 +42,24 @@
       "bytes": 12868
     },
     "assets/screenshots/forecasting.png": {
-      "sha256": "e6af4d131df0e73d5b7becc5f3875037ae8cc8d0bc495da88d77f14d50f66972",
-      "bytes": 108085
+      "sha256": "ca0aa7148e8722bcbf6db54abf532375a365ba7d6c85b6e0f4dec5891355efd6",
+      "bytes": 113047
     },
     "assets/screenshots/mobile.png": {
-      "sha256": "edf33e128814a70e33aef2d1cdf6acc908116184d58a9f03ad06dd0fc5b05787",
-      "bytes": 51346
+      "sha256": "dc602201d8eaf01e425bf20c840918161a4b5e562e1a73bcc25c0da4ea408b8d",
+      "bytes": 59860
     },
     "assets/screenshots/overview.png": {
-      "sha256": "3c1c77bfc8afe1cb2bba8e2e53790aa3a164e7c38464ed8f89db952f913d021a",
-      "bytes": 155138
+      "sha256": "3f389e8fd87e7460969c7d500a2b2bd558151fd6060d5832ca6c4e594f558c16",
+      "bytes": 137318
     },
     "assets/screenshots/training-load.png": {
-      "sha256": "13319821bbfff475af1f6d45d53c754e805ed7a1a96169d7af7db5752531beee",
-      "bytes": 242153
+      "sha256": "b2b17b6094b4e155b8d3a75c3563896f9b83351efff186ac19c87966d100da5b",
+      "bytes": 129285
     },
     "assets/screenshots/trajectories.png": {
-      "sha256": "c055d2286bfba9bf18cfaa3b91d865467a9a880151f85604613a562b2da9e629",
-      "bytes": 120260
+      "sha256": "57fcd8b68a2e240e8204859113e918f2469ac06517970dec5dd34cbe40ee94cb",
+      "bytes": 123293
     },
     "DATA_ACCESS_AND_LICENSE.md": {
       "sha256": "a3e8795e55205a4c4cd3319daa4ecd7fe06735ba35d783833af9d7cf5fa82237",
@@ -68,6 +68,10 @@
     "docs/METHODS.md": {
       "sha256": "4da372d847e5a572f4dff4a9e559446eebb61d0db9e61feef467ce21920ddeb1",
       "bytes": 5147
+    },
+    "docs/UI_POLISH.md": {
+      "sha256": "f09932e7eab7f468d8802701b1480c6607abccaf4562567812703d86da0feda7",
+      "bytes": 2341
     },
     "FINAL_HANDOFF.md": {
       "sha256": "15bb75ffad0f0986dbf7d53f750675eee48805a5b3c640df243baf2854f07251",
@@ -86,8 +90,8 @@
       "bytes": 823
     },
     "README.md": {
-      "sha256": "e53d8e7a185fd2507c363dda1bbff451f41f37a486cfd964a96a5c25f0003daa",
-      "bytes": 7865
+      "sha256": "797b3eb1144f2980613d78a130628eeeeba797d1a61e210f54932a28a044aa36",
+      "bytes": 8107
     },
     "REPRODUCIBILITY.md": {
       "sha256": "edbe0c210dcf76a779b3c344831c1d842884f8b47ba80f832c3d8cb94a784393",
@@ -134,8 +138,8 @@
       "bytes": 3171
     },
     "src/pathwaylab/demo_dashboard.py": {
-      "sha256": "1233061753d62d1a9e85e8f13431de260e74722e25613b53ff7e223daa5398e5",
-      "bytes": 19411
+      "sha256": "7875af215721731518f33bd533c4b26f34981b54cb8b33f15f9d9a5005bcbff2",
+      "bytes": 20192
     },
     "src/pathwaylab/demo_data.py": {
       "sha256": "cf75fdd0570a52706d7d541b0f2b2d733bb0e18ee52b3e823f3cc284cfcb4a18",
@@ -190,8 +194,8 @@
       "bytes": 3299
     },
     "src/pathwaylab/presentation.py": {
-      "sha256": "ccfc1532e48b6a560c8573b13deab6832b4b7a7b90a4f9c4a9e7a4eb76022dd6",
-      "bytes": 5805
+      "sha256": "0da4388cff5500862e452f88a1114bb8931e8afa1bc89d41b35b28452215c49b",
+      "bytes": 8944
     },
     "src/pathwaylab/quality.py": {
       "sha256": "de05f4621f630a937176a46a3099afad135538d6c0c7946f5e1c3ef5fc0669c8",

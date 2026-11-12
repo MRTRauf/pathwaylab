@@ -42,6 +42,9 @@ It does not predict injury, readiness, player potential or causal training effec
 
 The interface uses an independent navy/yellow visual identity, system fonts,
 responsive layouts and source captions. It uses no club logos or third-party imagery.
+The overview banner, research-principles row, shaded control panels and consistent
+metric cards give the workspace a restrained navy-and-yellow identity.
+See [presentation verification](docs/UI_POLISH.md) for the prepared update's checks.
 
 ## Architecture
 

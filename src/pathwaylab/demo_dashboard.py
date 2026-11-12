@@ -15,7 +15,14 @@ from .demo_data import (
     load_cohort,
 )
 from .eda import NAMES, UNITS
-from .presentation import chart, footer, module_card, section_intro
+from .presentation import (
+    chart,
+    footer,
+    forecast_workflow,
+    module_card,
+    research_hero,
+    section_intro,
+)
 
 
 @st.cache_data(show_spinner=False)
@@ -52,6 +59,7 @@ def overview(loads: pd.DataFrame, events: pd.DataFrame) -> None:
         "Explore physical load, evaluate temporal forecasts, and "
         "describe match involvement. Two independent analysis lanes, with context in view.",
     )
+    research_hero()
     st.caption("The figures below describe generated fixtures, not professional football findings.")
     for col, label, value in zip(
         st.columns(4),
@@ -144,29 +152,32 @@ def explorer(loads: pd.DataFrame) -> None:
         "Use the filters to distinguish coverage from load variation.",
     )
     training = loads.loc[loads.md_day.ne(0)]
-    controls = st.columns([1.2, 1.2, 2])
-    with controls[0]:
-        metric = st.selectbox(
-            "Physical-load measure",
-            list(NAMES),
-            index=1,
-            format_func=lambda k: f"{NAMES[k]} ({UNITS[k]})",
+    with st.container(border=True, key="load_controls"):
+        st.markdown("#### Observation controls")
+        st.caption("Choose fictional players, a physical measure and an observation window.")
+        controls = st.columns([1.2, 1.2, 2])
+        with controls[0]:
+            metric = st.selectbox(
+                "Physical-load measure",
+                list(NAMES),
+                index=1,
+                format_func=lambda k: f"{NAMES[k]} ({UNITS[k]})",
+            )
+        with controls[1]:
+            positions = st.multiselect(
+                "Fictional positions",
+                sorted(training.position.unique()),
+                default=sorted(training.position.unique()),
+            )
+        with controls[2]:
+            dates = st.date_input(
+                "Date range", (training.date.min().date(), training.date.max().date())
+            )
+        players = st.multiselect(
+            "Fictional load players",
+            sorted(training.player_id.unique()),
+            default=sorted(training.player_id.unique())[:4],
         )
-    with controls[1]:
-        positions = st.multiselect(
-            "Fictional positions",
-            sorted(training.position.unique()),
-            default=sorted(training.position.unique()),
-        )
-    with controls[2]:
-        dates = st.date_input(
-            "Date range", (training.date.min().date(), training.date.max().date())
-        )
-    players = st.multiselect(
-        "Fictional load players",
-        sorted(training.player_id.unique()),
-        default=sorted(training.player_id.unique())[:4],
-    )
     if len(dates) != 2:
         st.info("Choose a start and end date to display the observation window.")
         return
@@ -243,6 +254,7 @@ def forecasting(scores: pd.DataFrame, predictions: pd.DataFrame, protocol: dict)
         "Compare calculated synthetic forecasts on identical temporal "
         "holdout targets. Lower error means closer predictions in this toy example.",
     )
+    forecast_workflow()
     st.info(
         "Demo target: the next observed training block's cumulative HSR (synthetic microcycle). "
         "The separate real research targets one observed session; these metrics are not comparable."
@@ -326,17 +338,22 @@ def trajectories(events: pd.DataFrame) -> None:
         "appearances. Keep exposure and sample size beside each comparison.",
     )
     st.caption(EVENT_SOURCE + " · fictional EVENT IDs · unrelated to the load-demo cohort")
-    columns = st.columns([1.2, 1.6, 1])
-    with columns[0]:
-        player = st.selectbox("Fictional event player", sorted(events.player_id.unique()))
-    with columns[1]:
-        seasons = st.multiselect(
-            "Demo seasons", sorted(events.season.unique()), default=sorted(events.season.unique())
-        )
-    with columns[2]:
-        metric = st.selectbox(
-            "Event measure", ["passes", "shots", "carries", "tackles", "interceptions"]
-        )
+    with st.container(border=True, key="event_controls"):
+        st.markdown("#### Comparison controls")
+        st.caption("Select a fictional player and seasons. Rates always retain simulated exposure.")
+        columns = st.columns([1.2, 1.6, 1])
+        with columns[0]:
+            player = st.selectbox("Fictional event player", sorted(events.player_id.unique()))
+        with columns[1]:
+            seasons = st.multiselect(
+                "Demo seasons",
+                sorted(events.season.unique()),
+                default=sorted(events.season.unique()),
+            )
+        with columns[2]:
+            metric = st.selectbox(
+                "Event measure", ["passes", "shots", "carries", "tackles", "interceptions"]
+            )
     cohort = events.loc[events.season.isin(seasons)]
     view = cohort.loc[cohort.player_id.eq(player)]
     if view.empty:
@@ -420,7 +437,7 @@ def methods() -> None:
         "A useful research interface makes its assumptions as visible as its charts.",
     )
     tabs = st.tabs(["Research design", "Data boundaries", "Reproduce"])
-    with tabs[0]:
+    with tabs[0], st.container(border=True):
         st.markdown("### Three questions")
         st.write(
             "How does physical load vary within players? Do historical features forecast "
@@ -440,7 +457,7 @@ def methods() -> None:
             "and frozen pre-session plans. It requires approved matched data and governance; "
             "it has not been conducted."
         )
-    with tabs[1]:
+    with tabs[1], st.container(border=True):
         st.markdown("### Public demonstration")
         st.write(
             f"Independent deterministic generators, seeds {SEED} and {SEED + 1}. Load and "
@@ -464,7 +481,7 @@ def methods() -> None:
             "Source methods: Sierra-Casas et al. (2026), doi:10.3390/data11040084; "
             "StatsBomb Open Data specifications. No club affiliation or endorsement."
         )
-    with tabs[2]:
+    with tabs[2], st.container(border=True):
         st.code(
             "python -m pip install -e '.[dev,app,research]'\n"
             "pytest -q -m 'not integration'\npython -m pathwaylab.cli --mode demo\n"
