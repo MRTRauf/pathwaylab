@@ -75,8 +75,8 @@ automatically by releasing software.
 
 ## Decisions and interpretation
 
-The owner must approve the original-code license and concrete public contents before
-irreversible publication. External data keep their own terms. See DATA_ACCESS_AND_LICENSE.md
+The owner approved MIT and the reviewed data-free release. Future content changes
+must preserve this scope. External data keep their own terms. See DATA_ACCESS_AND_LICENSE.md
 and FINAL_RELEASE_REPORT.md for current decisions/status. Original research is
 exploratory and conditional retrospective forecasting, with small dependent samples,
 unverified prospective timing and event inclusion sensitivity. Proposed connected

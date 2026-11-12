@@ -1,144 +1,76 @@
-> Current release update: owner explicitly approved MIT for eligible original code,
-> publication of the reviewed data-free candidate and synthetic-only deployment.
-> The preparation-stage approval blockers described below are historical.
-> External verification results will be appended after execution.
+# PathwayLab public release report
 
-# PathwayLab productization and release report
+2026-11-12. **PARTIAL: GitHub publication complete; Streamlit deployment awaits
+owner account authorization.** The owner explicitly approved MIT and publication.
 
-Status: **PARTIAL — product implementation and local verification complete;
-external publication BLOCKED pending explicit license/content approval**.
-No public repository or HTTPS demo is claimed.
-Authenticated GitHub account was verified as MRTRauf; intended repository is
-MRTRauf/pathwaylab. It did not resolve when checked. Community Cloud may require
-owner sign-in through its supported interface.
+## Verified public repository
 
-## Implemented product
+[MRTRauf/pathwaylab](https://github.com/MRTRauf/pathwaylab) is PUBLIC, default
+branch main. GitHub recognizes the MIT license. An independent anonymous Chrome
+session received HTTP 200, rendered the README and loaded its genuine synthetic
+screenshot. No professional club affiliation or deployment is claimed.
 
-Preserved the existing GPS and separate event-research architecture. Added a navy
-sidebar, yellow accents, light responsive panels, system typography, consistent
-Plotly styling and explicit source captions. All five sections now have useful
-public synthetic content, including computed chronological forecast comparisons,
-fictional-player/date/position filters, simulated exposure, season comparisons,
-shifted event windows, peer distributions and concise methods documentation.
+[Hosted GitHub Actions](https://github.com/MRTRauf/pathwaylab/actions/runs/43160709722)
+completed successfully on Ubuntu/Python 3.11: 54 offline tests passed in 7.03s,
+full Ruff lint/format, dependency checks, imports, synthetic CLI and wheel packaging.
+Subsequent documentation pushes are checked separately before handoff.
 
-The public wrapper forces synthetic-only operation. Both the UI and server branch
-enforce trusted configuration. Query/widget manipulation cannot turn on research;
-no original data are downloaded or loaded on the public path. Synthetic seeds 42
-and 43 are independent and documented. Demo metrics are computed from predictions,
-not copied from professional research. No official club logos or external images
-are bundled.
+## Reproduction and safety
 
-## Research preservation
+Cloned the actual public GitHub repository into a new directory and installed it
+in the isolated release environment. Full fixture tests: 54 passed in 24.60s.
+Offline: 54 passed in 20.06s. Pip check, full Ruff lint/format and synthetic CLI pass.
+The original research workspace previously passed 64 full tests and 54 offline
+tests, with ten additional authorized-data integration checks retained locally.
 
-The productization snapshot protects 233 files, including original data, analytical
-outputs and both event versions. Scientific function ASTs remained identical through
-import/style cleanup. Preserved interpretations include conditional known-date
-forecasting, repeated-measures uncertainty, estimated event exposure and inclusion
-sensitivity. No real numerical headline is cleared for public marketing.
+The approved release contains the original 57 safe files plus MIT LICENSE: 58 files.
+Audited all three pre-publication commits and 66 unique blobs. Committed bytes
+matched the explicit release manifest. No inherited research history, raw external
+records, individual derivatives/predictions, private audits, credentials or local
+machine paths were included. Original data/artifacts (233 protected files) remain
+unchanged; scientific function ASTs in 15 modules remain identical. A legacy real
+fixture in the original history was replaced with invented values before the
+separate release history began. That original history was never pushed.
 
-A legacy parser fixture was independently found to match an original real load
-record. It was replaced with invented values while retaining parsing/date/QA
-assertions. The original Git history is preserved locally and must not be pushed.
-The public candidate has a separately curated history with fixture-only tests;
-private-data integration tests/golden constants stay in the original workspace.
-No original test assertions were weakened or deleted there.
+## Application and browser evidence
 
-## Verification evidence
+All five existing sections retain the navy/yellow/light design. Public entry point:
+app/public_demo.py; it forces synthetic-only operation even if a private flag is
+accidentally present. Both fictional cohorts are independently generated using
+documented seeds. Model metrics and event summaries are computed from fixtures.
+No runtime original-data downloads or user-input persistence are required.
 
-Full Ruff lint and format checks passed with the original rule set after cleanup.
-Before cleanup: 125 findings; twenty files required formatting. No rule or original
-research assertion was weakened to achieve a passing result.
+Final preparation Chrome review passed 20 cases, 40 interaction checks and 36 genuine
+captures at 1440/1280/768/390 pixels. Filters, date changes, computed model-score
+changes, pointer hover, empty states, tables, tabs and mobile navigation passed.
+No page errors, document overflow or recorded chart-title overruns occurred.
+The published source is additionally checked in local Chrome; this is distinct
+from testing a deployed HTTPS app. No general accessibility certification is claimed.
 
-| Actual check | Result |
-|---|---|
-| Original workspace full suite | 64 passed in 41.39s |
-| Original workspace offline suite | 54 passed, 10 integration checks deselected in 10.31s |
-| Fresh data-free candidate full fixture suite | 54 passed in 12.64s |
-| Clean local Git clone full fixture suite | 54 passed in 14.78s |
-| Clean local Git clone offline suite | 54 passed in 13.43s |
-| Full Ruff lint | PASS, zero findings |
-| Ruff format | PASS, 42 original-workspace / 39 candidate Python files |
-| Fresh dependency consistency | pip check: no broken requirements |
-| Fresh imports | All 21 package modules imported |
-| Synthetic generation and CLI | PASS, generated fixtures and computed scores |
-| Original checksum and ingestion QA | PASS; no research-output overwrite |
-| Wheel packaging | PASS, pathwaylab 0.1.0 wheel built |
+## Rights and interpretation
 
-Checks ran on Windows 11/Python 3.12.10. Fresh versions included Streamlit 1.67.0,
-pytest 9.2.0, NumPy 2.5.4, pandas 2.3.3, scikit-learn 1.9.1 and Ruff 0.17.4.
-The existing app environment also passed with Streamlit 1.55.0. Temporary-directory
-ownership failures were resolved using fresh workspace-local pytest basetemp;
-an invalid outside-root relative-cache override was removed. Failures and final
-logs remain local. No hosted Linux result is inferred from these Windows checks.
+MIT applies only to eligible original code. External datasets, assets and packages
+retain their terms. Zenodo redistribution evidence and StatsBomb attribution/asset
+requirements remain separate unresolved issues; affected content is excluded.
+GPS/event populations are unlinked. Research remains exploratory, conditional
+retrospective forecasting with timing, dependence, exposure and inclusion caveats.
+No injury/readiness, causal effect, player development or prospective utility claim.
 
-Final fresh-candidate Chrome 157.0.8103.39 review: 20 section/viewport cases,
-40 interaction checks, 36 genuine captures across 1440, 1280, 768 and 390 pixels;
-zero page errors, page-level overflow or recorded chart-title overruns. Tested
-dropdowns, date changes, pointer hover tooltips, computed-score changes, empty
-selections, tables, tabs and mobile navigation. All owned servers stopped.
-Visually inspected representative desktop/mobile/tablet captures. Corrected legend
-overlap, caption opacity, sidebar field contrast and Express trace colors, then
-repeated affected checks. Public assets contain only selected genuine synthetic
-captures. Detailed browser evidence remains in the local research workspace.
+## Streamlit deployment gate
 
-Read-only release checks found no original load-tuple matches in public fixture
-strings or generated load rows, no credential/private-path/real-forecast-headline
-pattern matches, no tool branding and no broken relative Markdown links. Manifest
-bytes were checked against the actual candidate. These bounded checks supplement
-file/history review; they are not a universal security certification.
+The supported Community Cloud interface currently requires owner sign-in. An
+interactive Chrome window has been opened for that action. After authorization,
+deploy MRTRauf/pathwaylab, main, app/public_demo.py, Python 3.12, root requirements.txt
+(`.[app]`), no secrets or original datasets. Public synthetic mode is mandatory.
 
-## Rights and release status
+**Actual demo URL: unavailable; no deployment success is claimed.** After deployment,
+verify the actual HTTPS URL anonymously, all five sections/interactions, source
+labels and desktop/mobile layouts. Add that verified URL to README and outreach;
+recheck both links. Account security is not bypassed. No outreach has been sent.
 
-Original-code license: pending owner decision; MIT has been recommended. No license
-approval is invented. Third-party libraries retain their terms. Zenodo/StatsBomb
-originals, individual derivatives, predictions, real findings and screenshots are
-excluded. Their separate rights/attribution questions remain unresolved and are
-not silently assigned the code license.
+## Maintenance and verdict
 
-Repository URL: not verified; no repository created. Live demo URL: not verified;
-no deployment performed. Hosted GitHub Actions: not run/observed. Remote clean-clone
-and public visitor review: blocked before publication. A local curated clone is a
-separate check. No external messages or profile edits were performed.
-
-## Clean local release history and clone
-
-Created a separate main-branch repository with exactly 57 allowlisted files
-(including its manifest), no external remote and no inherited research history.
-Actual staged bytes matched the reviewed files. The first reviewed commit was
-d3a3cec217dc5dcf5c22db994b167f9553beded6. Original research history was preserved.
-
-Cloned that local repository into a clean directory, installed it in the fresh
-release environment and confirmed imports resolve to the clone. All 21 modules,
-pip check, full Ruff/format, fixture generation, synthetic CLI and wheel build
-passed. The clone contained no original data. Full/offline test results are above.
-The first clone test setup lacked the Windows basetemp parent directory; creating
-the documented outputs parent fixed setup, without code/assertion changes.
-
-Actual Chrome smoke checks from that clone passed all five sections and confirmed
-the final app/public_demo.py command in the Reproduce tab. Nine additional genuine
-captures were recorded separately; the owned server stopped. Generated files stayed
-ignored and Git remained clean. This is a local clone check, not a GitHub clone or
-hosted Actions result. The final report/manifest update is documentation only.
-
-## Remaining gates
-
-Obtain explicit original-code license and concrete manifest approval; publish only
-the curated candidate under the verified account. Then observe hosted CI,
-clone/test the actual remote and use supported Community Cloud authorization.
-Verify the actual public HTTPS application before claiming deployment or updating
-outreach links. Technical setup is complete; the owner need not recreate it.
-
-| Final gate | Status | Limitation |
-|---|---|---|
-| A. Science preservation | PASS | Exploratory/conditional limitations retained |
-| B. Code and local packaging | PASS | Hosted Linux still unobserved |
-| C. Public data safety | PASS for reviewed candidate | External data remain excluded |
-| D. Local UX | PASS for tested Chrome scope | No general accessibility certification |
-| E. GitHub release | BLOCKED | License/content approval; remote CI/clone unobserved |
-| F. Public deployment | BLOCKED | Approved publication, supported owner authorization and actual HTTPS checks required |
-
-The project can be described as independent football analytics research software
-with a transparent synthetic demonstration. It cannot be described as club
-deployment, linked-player predictive improvement, player development or an accepted
-Brøndby thesis. Maintenance instructions are in FINAL_HANDOFF.md; final CV/portfolio
-drafts are under outreach/FINAL_*.md and contain no unapproved numerical headline.
+See FINAL_HANDOFF.md, REPRODUCIBILITY.md, DATA_ACCESS_AND_LICENSE.md and docs/METHODS.md.
+Safe source release and local presentation are ready; the complete public-demo
+acceptance gate remains open. CV/LinkedIn/portfolio drafts include the verified
+GitHub URL and explicitly leave the live link pending.

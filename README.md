@@ -14,7 +14,8 @@ evidence boundaries throughout.
 The public application uses independently generated fictional observations. Every
 displayed sample size, rate and demonstration forecast score is calculated from
 those fixtures. Original GPS/event records and real individual predictions are not
-bundled. Live-demo and repository links will be added only after verified publication.
+bundled. [Public GitHub repository](https://github.com/MRTRauf/pathwaylab).
+The live demo awaits Streamlit Community Cloud account authorization.
 
 ## Why this project
 
@@ -113,7 +114,8 @@ full Ruff checks and wheel packaging on Windows/Python 3.12. Genuine Chrome
 checks covered all five sections at four widths. The ten extra local tests require
 authorized research artifacts and are not bundled with the public fixtures.
 Exact evidence and publication status are recorded in FINAL_RELEASE_REPORT.md.
-A workflow file is not evidence that hosted CI has run. No clinical,
+Hosted [GitHub Actions passed](https://github.com/MRTRauf/pathwaylab/actions/runs/43160709722),
+including 54 offline tests, full style checks, demo execution and packaging. No clinical,
 prospective deployment or accessibility certification is implied.
 
 ## Data, licensing and limitations

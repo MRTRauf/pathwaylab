@@ -62,20 +62,20 @@
       "bytes": 120260
     },
     "DATA_ACCESS_AND_LICENSE.md": {
-      "sha256": "61cf5dc6cee633b42643bb954a13952d4d64724d48b5a5956cdce8979b58c4ef",
-      "bytes": 3875
+      "sha256": "a3e8795e55205a4c4cd3319daa4ecd7fe06735ba35d783833af9d7cf5fa82237",
+      "bytes": 3881
     },
     "docs/METHODS.md": {
       "sha256": "4da372d847e5a572f4dff4a9e559446eebb61d0db9e61feef467ce21920ddeb1",
       "bytes": 5147
     },
     "FINAL_HANDOFF.md": {
-      "sha256": "b1b2249eea1cd5b74449348bcb68e9ffcd115da73ac862a9aa4b8c8dff2d5dfe",
-      "bytes": 4541
+      "sha256": "15bb75ffad0f0986dbf7d53f750675eee48805a5b3c640df243baf2854f07251",
+      "bytes": 4538
     },
     "FINAL_RELEASE_REPORT.md": {
-      "sha256": "74a81515db793397bb4e09ec89a71aea6eeb37aaec997a048c1f2fc351477ec5",
-      "bytes": 8785
+      "sha256": "3d8e10959628311b7e54a49fde6784de5e4582e7cc89c1b6442fabbcb5fa9144",
+      "bytes": 4488
     },
     "LICENSE": {
       "sha256": "e430f9f99b3300a11d700b17cd47ee96c9bfe15d7fad31941dae4a40da1853e3",
@@ -86,8 +86,8 @@
       "bytes": 823
     },
     "README.md": {
-      "sha256": "37c5275e2f5fb22f3e921fb3e406184d695275f27492e0796398a3924ebdd874",
-      "bytes": 7687
+      "sha256": "e53d8e7a185fd2507c363dda1bbff451f41f37a486cfd964a96a5c25f0003daa",
+      "bytes": 7865
     },
     "REPRODUCIBILITY.md": {
       "sha256": "edbe0c210dcf76a779b3c344831c1d842884f8b47ba80f832c3d8cb94a784393",

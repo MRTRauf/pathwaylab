@@ -12,7 +12,7 @@ data-derived images.
 
 ## Original code and external packages
 
-The original-code software license is awaiting the owner's explicit decision.
+Eligible original PathwayLab code is licensed under the owner-approved MIT License.
 No missing-license default is assumed. Third-party packages retain their own
 licenses and are not relicensed by PathwayLab. No external dataset is placed under
 the original-code license. See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md).
