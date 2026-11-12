@@ -49,7 +49,8 @@ research assertion was weakened to achieve a passing result.
 | Original workspace full suite | 64 passed in 41.39s |
 | Original workspace offline suite | 54 passed, 10 integration checks deselected in 10.31s |
 | Fresh data-free candidate full fixture suite | 54 passed in 12.64s |
-| Fresh candidate offline suite, earlier final-code check | 54 passed in 12.44s |
+| Clean local Git clone full fixture suite | 54 passed in 14.78s |
+| Clean local Git clone offline suite | 54 passed in 13.43s |
 | Full Ruff lint | PASS, zero findings |
 | Ruff format | PASS, 42 original-workspace / 39 candidate Python files |
 | Fresh dependency consistency | pip check: no broken requirements |
@@ -92,8 +93,27 @@ not silently assigned the code license.
 Repository URL: not verified; no repository created. Live demo URL: not verified;
 no deployment performed. Hosted GitHub Actions: not run/observed. Remote clean-clone
 and public visitor review: blocked before publication. A local curated clone is a
-separate check, recorded below after execution. No external messages or profile
-edits were performed.
+separate check. No external messages or profile edits were performed.
+
+## Clean local release history and clone
+
+Created a separate main-branch repository with exactly 57 allowlisted files
+(including its manifest), no external remote and no inherited research history.
+Actual staged bytes matched the reviewed files. The first reviewed commit was
+d3a3cec217dc5dcf5c22db994b167f9553beded6. Original research history was preserved.
+
+Cloned that local repository into a clean directory, installed it in the fresh
+release environment and confirmed imports resolve to the clone. All 21 modules,
+pip check, full Ruff/format, fixture generation, synthetic CLI and wheel build
+passed. The clone contained no original data. Full/offline test results are above.
+The first clone test setup lacked the Windows basetemp parent directory; creating
+the documented outputs parent fixed setup, without code/assertion changes.
+
+Actual Chrome smoke checks from that clone passed all five sections and confirmed
+the final app/public_demo.py command in the Reproduce tab. Nine additional genuine
+captures were recorded separately; the owned server stopped. Generated files stayed
+ignored and Git remained clean. This is a local clone check, not a GitHub clone or
+hosted Actions result. The final report/manifest update is documentation only.
 
 ## Remaining gates
 
