@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pathwaylab"
+version = "0.1.0"
+description = "Independent football training-load and player-performance analytics with a synthetic demonstration"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24,<3", "pandas>=2.0,<3", "scikit-learn>=1.3,<2", "matplotlib>=3.7,<4"
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.55,<2", "plotly>=5.18,<7"]
+research = ["statsmodels>=0.14,<1"]
+dev = ["pytest>=7.4,<10", "ruff>=0.5,<1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["integration: requires locally acquired real research data/artifacts"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
